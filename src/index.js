@@ -9,6 +9,7 @@ class App {
     constructor () {
         this.imagesLoader = new ImageLoader('./assets/images', this.ready.bind(this))
         this.box = new Box('.game .box')
+        this.box.open()
         this.vase = new Vase('.game .vase')
     }
     ready () {

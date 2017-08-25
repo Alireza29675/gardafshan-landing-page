@@ -26,6 +26,7 @@ body {
     width: 280px;
     opacity: 1;
     transition-duration: 0.3s;
+    transition-property: opacity;
     position: absolute;
     left: 0;
     top: 0;
