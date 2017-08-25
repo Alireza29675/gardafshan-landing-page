@@ -12,6 +12,9 @@ class Vase {
     get state () {
         return this._state
     }
+    comeOut () {
+        this.container.classList.add('out')
+    }
     next () {
         const nextIndex = vaseEvolutionQueue.indexOf(this.state) + 1
         this.state = vaseEvolutionQueue[Math.min(nextIndex, vaseEvolutionQueue.length - 1)]

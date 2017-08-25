@@ -59,9 +59,13 @@ body {
     height: 170px;
     background-size: contain;
     position: absolute;
-    top: 45%;
+    transition-duration: 2s;
+    top: -30%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.game .area .vase.out {
+    top: 35%;
 }
 .game .area .vase img {
     opacity: 0;
