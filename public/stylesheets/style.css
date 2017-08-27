@@ -110,26 +110,40 @@ body {
 
 .game .area .paper {
     background: white;
+    background-image: linear-gradient(#FFF, #d0d0d0, #F5F5F5);
     position: absolute;
-    bottom: -10px;
+    bottom: 100%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(-10deg) scale(0.7);
     direction: rtl;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5), inset 0px 0px ;
+    font-family: "IRANSansWeb(FaNum) Medium", 'Arial', 'serif';
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5), 10px 30px 16px -11px rgba(0,0,0,0.23);
     padding: 20px 10px;
+    transition-duration: 1s;
+}
+.game .area .paper.out {
+    transform: translateX(-50%) rotate(10deg) scale(0.7);
+    bottom: -10px;
+}
+.game .area .paper h2 {
+    text-align: center;
+    padding: 10px;
+    margin: 0 12px;
+    border-bottom: 1px solid #aaa;
 }
 .game .area .paper ul {
     list-style-type: none;
     margin: 0;
-    font-family: "IRANSansWeb(FaNum) Light", 'Arial', 'serif';
     padding: 10px;
     padding-right: 35px;
+    padding-left: 10px;
 }
 .game .area .paper ul li {
     position: relative;
     font-size: 14px;
     padding: 5px;
     padding-bottom: 10px;
+    opacity: 0.3;
 }
 .game .area .paper ul li:before {
     content: ' ';
@@ -140,4 +154,15 @@ body {
     border-radius: 4px;
     right: -22px;
     top: 5px;
+}
+.game .area .paper ul li.active {
+    opacity: 1;
+}
+.game .area .paper ul li.tick {
+    opacity: 1;
+    text-decoration: line-through;
+}
+.game .area .paper ul li.tick:before {
+    border-color: #8dd819;
+    background: #8dd819;
 }
