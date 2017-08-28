@@ -66,8 +66,8 @@ body {
 
 /* Vase */
 .game .area .vase {
-    width: 170px;
-    height: 170px;
+    width: 190px;
+    height: 190px;
     background-size: contain;
     position: absolute;
     transition-duration: 2s;
@@ -204,4 +204,29 @@ body {
 }
 .game .area .seed img {
     width: 80px;
+}
+
+/* Water Glasses */
+.glasses {
+    position: absolute;
+    left: 50%;
+    top: 200px;
+    transform: translateX(130px);
+}
+.glasses img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    transition-duration: 0.3s;
+    opacity: 0;
+}
+.glasses img.normal {
+    opacity: 1;
+}
+.glasses.tilt img.tilted {
+    opacity: 1;
+}
+.glasses.tilt img.normal {
+    opacity: 0;
 }

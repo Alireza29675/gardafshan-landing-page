@@ -2,6 +2,9 @@ import ImageLoader from './ImageLoader'
 import Box from './Box'
 import Vase from './Vase'
 import Paper from './Paper'
+import Soil from './Soil'
+import Seed from './Seed'
+import Glasses from './Glasses'
 
 window.$ = (query) => document.querySelector(query);
 window.$$ = (query) => document.querySelectorAll(query);
@@ -14,7 +17,10 @@ class Game {
         this.imagesLoader = new ImageLoader('./assets/images', this.ready.bind(this));
         this.box = new Box('.game .box');
         this.vase = new Vase('.game .vase');
-        this.paper = new Paper('.game .paper', this)
+        this.paper = new Paper('.game .paper', this);
+        this.soil = new Soil('.game .soil');
+        this.seed = new Seed('.game .seed');
+        this.glasses = new Glasses('.game .glasses')
     }
     ready () {
         after(1000, this.unbox.bind(this))
