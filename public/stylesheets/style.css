@@ -1,3 +1,14 @@
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-drag: none;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -108,6 +119,7 @@ body {
     transform: translate(-50%, -50%) scale(1)
 }
 
+/* Paper */
 .game .area .paper {
     background-color: white;
     background-image: linear-gradient(#FFF, #d0d0d0, #F5F5F5);
@@ -169,4 +181,27 @@ body {
 .game .area .paper ul li.tick:before {
     border-color: #8dd819;
     background: #8dd819;
+}
+
+/* Soil */
+.game .area .soil {
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-320px) rotate(-10deg);
+}
+.game .area .soil img {
+    width: 180px;
+}
+
+
+/* Seed */
+.game .area .seed {
+    position: absolute;
+    top: 390px;
+    left: 50%;
+    transform: translateX(-240px) rotate(10deg);
+}
+.game .area .seed img {
+    width: 80px;
 }
