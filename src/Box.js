@@ -2,7 +2,8 @@ class Box {
     constructor (query) {
         this.container = $(query);
         this.openBoxImage = $(query + ' .open');
-        this.closeBoxImage = $(query + ' .close')
+        this.closeBoxImage = $(query + ' .close');
+        window.addEventListener('resize', this.fixSizes.bind(this));
     }
     fixSizes () {
         this.openBoxImage.style.width = (this.closeBoxImage.offsetWidth * (464 / 300)) + 'px';

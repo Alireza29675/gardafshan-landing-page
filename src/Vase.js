@@ -1,12 +1,12 @@
-const vaseEvolutionQueue = ['empty', 'soiled', 'seeded', 'filled', 'wet', 'green']
+const vaseEvolutionQueue = ['empty', 'soiled', 'seeded', 'filled', 'wet', 'green'];
 
 class Vase {
     constructor (query) {
-        this.container = $(query)
+        this.container = $(query);
         this.state = 'empty'
     }
     set state (to) {
-        this._state = to
+        this._state = to;
         this.container.setAttribute('data-state', to)
     }
     get state () {
@@ -16,7 +16,7 @@ class Vase {
         this.container.classList.add('out')
     }
     next () {
-        const nextIndex = vaseEvolutionQueue.indexOf(this.state) + 1
+        const nextIndex = vaseEvolutionQueue.indexOf(this.state) + 1;
         this.state = vaseEvolutionQueue[Math.min(nextIndex, vaseEvolutionQueue.length - 1)]
     }
 }

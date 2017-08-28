@@ -109,7 +109,7 @@ body {
 }
 
 .game .area .paper {
-    background: white;
+    background-color: white;
     background-image: linear-gradient(#FFF, #d0d0d0, #F5F5F5);
     position: absolute;
     bottom: 100%;

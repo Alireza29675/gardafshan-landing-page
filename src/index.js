@@ -13,7 +13,7 @@ class Game {
     constructor () {
         this.imagesLoader = new ImageLoader('./assets/images', this.ready.bind(this));
         this.box = new Box('.game .box');
-        this.vase = new Vase('.game .vase')
+        this.vase = new Vase('.game .vase');
         this.paper = new Paper('.game .paper', this)
     }
     ready () {
@@ -23,7 +23,7 @@ class Game {
         this.box.open();
         after(200, () => {
             this.vase.comeOut();
-            after(100, () => {this.paper.comeOut();})
+            after(100, () => {this.paper.comeOut();});
             after(3000, () => {this.paper.next();})
         })
     }
