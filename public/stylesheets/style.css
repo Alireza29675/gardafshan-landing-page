@@ -75,6 +75,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.game .area .vase.draggable-over {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.2);
+}
 .game .area .vase.out {
     top: 32%;
 }

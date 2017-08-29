@@ -8,7 +8,7 @@ class Box {
     fixSizes () {
         this.openBoxImage.style.width = (this.closeBoxImage.offsetWidth * (464 / 300)) + 'px';
         this.openBoxImage.style.marginLeft = (this.closeBoxImage.offsetWidth / -200) + 'px';
-        const areaDistFromTop = (this.closeBoxImage.offsetWidth * (11 / 28));
+        window.areaDistFromTop = (this.closeBoxImage.offsetWidth * (11 / 28));
         $('.game > .area').style.top = areaDistFromTop + 'px';
         $('.game > .area').style.height = (window.innerHeight - areaDistFromTop) + 'px'
     }

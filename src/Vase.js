@@ -14,6 +14,7 @@ class Vase {
     }
     comeOut () {
         this.container.classList.add('out')
+        after(2000, () => { this.container.style.transitionDuration = '0.3s' })
     }
     next () {
         const nextIndex = vaseEvolutionQueue.indexOf(this.state) + 1;
