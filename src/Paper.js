@@ -16,13 +16,11 @@ class Paper {
     next () {
         const duration = this.itemIndex === 0 ? 0 : 1000;
         if (this.itemIndex > 0) this.items[this.itemIndex-1].classList.add('tick');
-        if (this.itemIndex < this.items.length) { after(duration, ()=>{
-            this.bold()
+        if (this.itemIndex < this.items.length) { after(duration, () => {
+            this.bold();
             this.items[this.itemIndex].classList.add('active');
             this.itemIndex++
-        }) } else {
-            this.game.onDone()
-        }
+        }) }
     }
 }
 

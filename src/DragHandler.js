@@ -15,6 +15,7 @@ class DragHandler {
                 y: [0, window.innerHeight]
             },
             onDragStart: (element, x, y, event) => {
+                this.container.classList.add('over-droppable');
                 this.targetRect = game.vase.container.getBoundingClientRect();
                 if (this.onStartCb) {
                     const ret = {
@@ -27,24 +28,24 @@ class DragHandler {
                 }
             },
             onDrag: (element, x, y, event) => {
-                if (this.onMoveCb) {
-                    const ret = {
-                        element: element,
-                        position: element.getBoundingClientRect(),
-                        event: event
-                    };
-                    ret.inTarget = this.isInRect(ret.position);
-                    this.onMoveCb(ret)
-                }
-            },
-            onDragEnd: (element, x, y, event) => {
                 const ret = {
                     element: element,
                     position: element.getBoundingClientRect(),
                     event: event
                 };
                 ret.inTarget = this.isInRect(ret.position);
-                this.onExitDroppable()
+                if (this.onMoveCb) this.onMoveCb(ret)
+            },
+            onDragEnd: (element, x, y, event) => {
+                this.container.classList.remove('over-droppable');
+                const ret = {
+                    element: element,
+                    position: element.getBoundingClientRect(),
+                    event: event
+                };
+                ret.inTarget = this.isInRect(ret.position);
+                if (ret.inTarget) this.droppedOnTarget();
+                this.onExitDroppable();
                 this.container.style.transitionDuration = '1s';
                 this.container.style.pointerEvents = 'none';
                 this.container.style.top = '';
@@ -72,12 +73,15 @@ class DragHandler {
     onExitDroppable () {
         game.vase.container.classList.remove('draggable-over')
     }
+    droppedOnTarget () {
+        game.vase.onDrop(this.container)
+    }
     isInRect (position) {
         const rect = this.targetRect;
         const targetCenterX = rect.left + rect.width/2;
         const targetCenterY = rect.top + rect.height/2;
         const distance = Math.sqrt(
-            Math.pow((targetCenterX - position.left + this.origin.x), 2) +
+            Math.pow((targetCenterX - position.left - this.origin.x), 2) +
             Math.pow((targetCenterY - position.top - this.origin.y), 2)
         );
         const newInTargetCalculated = distance < 70;

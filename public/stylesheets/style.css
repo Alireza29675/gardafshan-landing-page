@@ -98,7 +98,7 @@ body {
     top: 50%;
     left: 50%;
     opacity: 1;
-    transition-duration: 0.5s;
+    transition-duration: 1s;
     transform: translate(-50%, -50%) scale(0);
 }
 .game .area .vase[data-state='empty'] .empty {
@@ -113,15 +113,22 @@ body {
 .game .area .vase[data-state='filled'] .filled {
     opacity: 1;
 }
-.game .area .vase[data-state='wet'] .wet {
+.game .area .vase[data-state='wet'] .wet,
+.game .area .vase[data-state='green-little'] .wet,
+.game .area .vase[data-state='green-medium'] .wet,
+.game .area .vase[data-state='green-full'] .wet {
     opacity: 1;
 }
-.game .area .vase[data-state='green'] .wet {
-    opacity: 1;
+.game .area .vase[data-state='green-little'] .plant {
+    transform: translate(-50%, -50%) scale(0.2)
 }
-.game .area .vase[data-state='green'] .plant {
-    transform: translate(-50%, -50%) scale(1)
+.game .area .vase[data-state='green-medium'] .plant {
+    transform: translate(-50%, -50%) scale(0.5)
 }
+.game .area .vase[data-state='green-full'] .plant {
+    transform: translate(-50%, -50%) scale(0.9)
+}
+
 
 /* Paper */
 .game .area .paper {
@@ -228,9 +235,9 @@ body {
 .glasses img.normal {
     opacity: 1;
 }
-.glasses.tilt img.tilted {
+.glasses.over-droppable img.tilted {
     opacity: 1;
 }
-.glasses.tilt img.normal {
+.glasses.over-droppable img.normal {
     opacity: 0;
 }

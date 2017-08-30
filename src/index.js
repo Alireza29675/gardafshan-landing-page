@@ -16,7 +16,7 @@ class Game {
     constructor () {
         new ImageLoader('./assets/images', this.ready.bind(this));
         this.box = new Box('.game .box');
-        this.vase = new Vase('.game .vase');
+        this.vase = new Vase('.game .vase', this);
         this.paper = new Paper('.game .paper', this);
         this.soil = new Soil('.game .soil');
         this.seed = new Seed('.game .seed');
@@ -32,9 +32,6 @@ class Game {
             after(100, () => {this.paper.comeOut();});
             after(3000, () => {this.paper.next();})
         })
-    }
-    onDone () {
-        console.log('Done')
     }
 }
 
