@@ -23,14 +23,17 @@ class Game {
         this.glasses = new Glasses('.game .glasses')
     }
     ready () {
-        after(1000, this.unbox.bind(this))
+        after(4000, this.unBox.bind(this))
     }
-    unbox () {
+    unBox () {
         this.box.open();
         after(200, () => {
+            this.soil.comeOut();
             this.vase.comeOut();
-            after(100, () => {this.paper.comeOut();});
-            after(3000, () => {this.paper.next();})
+            after(100, () => this.paper.comeOut());
+            after(200, () => this.seed.comeOut());
+            after(1000, () => this.glasses.comeOut());
+            after(3000, () => this.paper.next());
         })
     }
 }

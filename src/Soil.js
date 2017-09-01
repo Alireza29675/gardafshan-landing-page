@@ -3,11 +3,18 @@ import DragHandler from './DragHandler'
 class Soil {
     constructor(query) {
         this.container = $(query);
-        this.draggable = new DragHandler(this.container, {x: 100, y: 0});
         window.addEventListener('resize', () => {
             this.container.style.top = '';
             this.container.style.left = '';
         })
+    }
+    makeDraggable () {
+        this.container.style.transitionDuration = '0s';
+        this.draggable = new DragHandler(this.container, {x: 100, y: 0});
+    }
+    comeOut () {
+        this.container.classList.add('out');
+        after(1000, this.makeDraggable.bind(this))
     }
 }
 
