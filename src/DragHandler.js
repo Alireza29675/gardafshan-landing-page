@@ -16,7 +16,7 @@ class DragHandler {
             },
             onDragStart: (element, x, y, event) => {
                 this.container.classList.add('over-droppable');
-                this.targetRect = game.vase.container.getBoundingClientRect();
+                this.targetRect = window.app.game.vase.container.getBoundingClientRect();
                 if (this.onStartCb) {
                     const ret = {
                         element: element,
@@ -68,13 +68,13 @@ class DragHandler {
         this.onEndCb = cb
     }
     onEnterDroppable () {
-        game.vase.container.classList.add('draggable-over')
+        window.app.game.vase.container.classList.add('draggable-over')
     }
     onExitDroppable () {
-        game.vase.container.classList.remove('draggable-over')
+        window.app.game.vase.container.classList.remove('draggable-over')
     }
     droppedOnTarget () {
-        game.vase.onDrop(this.container)
+        window.app.game.vase.onDrop(this.container)
     }
     isInRect (position) {
         const rect = this.targetRect;

@@ -29,12 +29,17 @@ body {
 /* Box */
 .game .box {
     position: absolute;
-    top: 0;
+    transition-duration: 0.9s;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%)
 }
+.game .box.back {
+    top: -100px;
+}
 .game .box > img.body {
     width: 280px;
+    border-radius: 10px 10px 0 0;
 }
 .game .box > img.door {
     position: absolute;
@@ -42,11 +47,21 @@ body {
     margin-top: -5px;
     width: 100%;
     left: 50%;
+    transition-duration: 0.5s;
     transform: translateX(-50%)
 }
 .game .box > img.door.open {
     margin-left: 1px;
     width: 151%;
+}
+.game .box > img.door.open {
+    opacity: 0;
+}
+.game .box.open > img.door.open {
+    opacity: 1;
+}
+.game .box.open > img.door.closed {
+    opacity: 0;
 }
 
 /* Area */
@@ -200,10 +215,24 @@ body {
 .game .area .soil.out {
     top: 160px;
     left: 50%;
-    transform: translateX(-320px) rotate(-10deg);
+    transform: translateX(-340px) rotate(-10deg);
 }
 .game .area .soil img {
     width: 180px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-duration: 0.3s;
+}
+.game .area .soil img.dragged {
+    width: 185px;
+    opacity: 0;
+}
+.game .area .soil.over-droppable img.normal {
+    opacity: 0;
+}
+.game .area .soil.over-droppable img.dragged {
+    opacity: 1;
 }
 
 
@@ -222,6 +251,20 @@ body {
 }
 .game .area .seed img {
     width: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-duration: 0.3s;
+}
+.game .area .seed img.dragged {
+    width: 90px;
+    opacity: 0;
+}
+.game .area .seed.over-droppable img.normal {
+    opacity: 0;
+}
+.game .area .seed.over-droppable img.dragged {
+    opacity: 1;
 }
 
 /* Water Glasses */
@@ -262,4 +305,20 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) translateX(-470px) translateY(80px);
+}
+
+
+/* -- Intro -- */
+.intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(30px);
+}
+
+.intro h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    font-family: "IRANSansWeb(FaNum) Medium", 'Arial', 'serif';
 }

@@ -1,4 +1,3 @@
-import ImageLoader from './ImageLoader'
 import Box from './Box'
 import Vase from './Vase'
 import Paper from './Paper'
@@ -20,22 +19,19 @@ class Game {
         this.soil = new Soil('.game .soil');
         this.seed = new Seed('.game .seed');
         this.glasses = new Glasses('.game .glasses');
-        window.onload = this.ready.bind(this);
-    }
-    ready () {
-
     }
     unBox () {
-        this.box.open();
-        after(200, () => {
-            after(200, () => this.seed.comeOut());
-            after(1000, () => this.soil.comeOut());
-            after(2000, () => this.vase.comeOut());
-            after(2100, () => this.paper.comeOut());
-            after(2500, () => this.glasses.comeOut());
-            after(4500, () => this.paper.next());
-        })
+        this.box.open().then(() => {
+            after(500, () => {
+                after(200, () => this.seed.comeOut());
+                after(1000, () => this.soil.comeOut());
+                after(2000, () => this.vase.comeOut());
+                after(2100, () => this.paper.comeOut());
+                after(2500, () => this.glasses.comeOut());
+                after(7000, () => this.paper.next());
+            })
+        });
     }
 }
 
-window.game = new Game();
+export default Game
