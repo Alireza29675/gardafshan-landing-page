@@ -33,25 +33,20 @@ body {
     left: 50%;
     transform: translateX(-50%)
 }
-.game .box img {
+.game .box > img.body {
     width: 280px;
-    opacity: 1;
-    transition-duration: 0.3s;
-    transition-property: opacity;
+}
+.game .box > img.door {
     position: absolute;
-    left: 0;
-    top: 0;
-    transform: translateX(-50%);
+    top: 100%;
+    margin-top: -5px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%)
 }
-.game .box img.open {
-    opacity: 0;
-    left: 3px;
-}
-.game .box.open img.close {
-    opacity: 0;
-}
-.game .box.open img.open {
-    opacity: 1;
+.game .box > img.door.open {
+    margin-left: 1px;
+    width: 151%;
 }
 
 /* Area */
