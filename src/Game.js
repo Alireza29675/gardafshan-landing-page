@@ -5,12 +5,6 @@ import Soil from './Soil'
 import Seed from './Seed'
 import Glasses from './Glasses'
 
-window.$ = (query) => document.querySelector(query);
-window.$$ = (query) => document.querySelectorAll(query);
-
-window.after = (time, doWhat) => setTimeout(doWhat, time);
-window.every = (time, doWhat) => setInterval(doWhat, time);
-
 class Game {
     constructor () {
         this.box = new Box('.game .box');
@@ -21,6 +15,7 @@ class Game {
         this.glasses = new Glasses('.game .glasses');
     }
     unBox () {
+        $('.intro').classList.add('hide');
         this.box.open().then(() => {
             after(500, () => {
                 after(200, () => this.seed.comeOut());
