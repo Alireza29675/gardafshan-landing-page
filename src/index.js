@@ -14,26 +14,26 @@ window.every = (time, doWhat) => setInterval(doWhat, time);
 
 class Game {
     constructor () {
-        new ImageLoader('./assets/images', this.ready.bind(this));
         this.box = new Box('.game .box');
         this.vase = new Vase('.game .vase', this);
         this.paper = new Paper('.game .paper', this);
         this.soil = new Soil('.game .soil');
         this.seed = new Seed('.game .seed');
-        this.glasses = new Glasses('.game .glasses')
+        this.glasses = new Glasses('.game .glasses');
+        window.onload = this.ready.bind(this);
     }
     ready () {
-        after(4000, this.unBox.bind(this))
+
     }
     unBox () {
         this.box.open();
         after(200, () => {
-            this.soil.comeOut();
-            this.vase.comeOut();
-            after(100, () => this.paper.comeOut());
             after(200, () => this.seed.comeOut());
-            after(1000, () => this.glasses.comeOut());
-            after(3000, () => this.paper.next());
+            after(1000, () => this.soil.comeOut());
+            after(2000, () => this.vase.comeOut());
+            after(2100, () => this.paper.comeOut());
+            after(2500, () => this.glasses.comeOut());
+            after(4500, () => this.paper.next());
         })
     }
 }

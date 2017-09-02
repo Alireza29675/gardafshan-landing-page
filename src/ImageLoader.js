@@ -2,15 +2,15 @@ const images = ['box-close.png', 'box-open.png', 'desk.svg', 'empty-vase.png', '
 
 class ImageLoader {
     constructor (url, ondone) {
-        this.ondone = ondone
-        this.loadedCount = 0
+        this.ondone = ondone;
+        this.loadedCount = 0;
         for (let name of images) this.load(url + '/' + name)
     }
     load (address) {
-        const image = document.createElement('img')
-        image.src = address
+        const image = document.createElement('img');
+        image.src = address;
         image.onload = () => {
-            this.loadedCount++
+            this.loadedCount++;
             if (this.loadedCount === images.length && this.ondone) {
                 this.ondone()
             }

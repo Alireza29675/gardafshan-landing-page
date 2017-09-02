@@ -3,7 +3,6 @@ class Paper {
         this.game = game;
         this.container = $(query);
         this.items = $$(query + ' li');
-        console.log(this.items);
         this.itemIndex = 0;
     }
     comeOut () {
