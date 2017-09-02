@@ -159,6 +159,10 @@ body {
     transform: translateX(-50%) rotate(10deg) scale(0.7);
     bottom: -10px;
 }
+.game .area .paper.out-page {
+    transform: translateX(-50%) scale(0.7);
+    bottom: -500px;
+}
 .game .area .paper.bold {
     transform: translateX(-50%) rotate(0deg) scale(0.95);
 }
@@ -218,6 +222,12 @@ body {
     left: 50%;
     transform: translateX(-340px) rotate(-10deg);
 }
+.game .area .soil.out-page {
+    transition-duration: 1s;
+    top: 500px;
+    left: 0;
+    transform: translateX(-340px) rotate(-10deg);
+}
 .game .area .soil img {
     width: 180px;
     position: absolute;
@@ -250,6 +260,12 @@ body {
     left: 50%;
     transform: translateX(-240px) rotate(10deg);
 }
+.game .area .seed.out-page {
+    transition-duration: 1s;
+    top: 900px;
+    left: -10%;
+    transform: translateX(-240px) rotate(-10deg);
+}
 .game .area .seed img {
     width: 80px;
     position: absolute;
@@ -279,6 +295,12 @@ body {
 .glasses.out {
     left: 50%;
     top: 200px;
+    transform: translateX(130px);
+}
+.glasses.out-page {
+    transition-duration: 1s;
+    left: 100%;
+    top: 600px;
     transform: translateX(130px);
 }
 .glasses img {

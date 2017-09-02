@@ -8,6 +8,9 @@ class Paper {
     comeOut () {
         this.container.classList.add('out')
     }
+    getOut () {
+        this.container.classList.add('out-page')
+    }
     bold () {
         this.container.classList.add('bold');
         after(2000, ()=>{ this.container.classList.remove('bold') })
@@ -15,11 +18,14 @@ class Paper {
     next () {
         const duration = this.itemIndex === 0 ? 0 : 1000;
         if (this.itemIndex > 0) this.items[this.itemIndex-1].classList.add('tick');
-        if (this.itemIndex < this.items.length) { after(duration, () => {
+        if (this.itemIndex < this.items.length) after(duration, () => {
             this.bold();
             this.items[this.itemIndex].classList.add('active');
             this.itemIndex++
-        }) }
+        });
+        else {
+            this.game.onDone()
+        }
     }
 }
 

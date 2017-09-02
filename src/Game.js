@@ -6,7 +6,8 @@ import Seed from './Seed'
 import Glasses from './Glasses'
 
 class Game {
-    constructor () {
+    constructor (app) {
+        this.app = app;
         this.box = new Box('.game .box');
         this.vase = new Vase('.game .vase', this);
         this.paper = new Paper('.game .paper', this);
@@ -24,7 +25,16 @@ class Game {
                 after(2100, () => this.paper.comeOut());
                 after(2500, () => this.glasses.comeOut());
                 after(7000, () => this.paper.next());
-            })
+            });
+        });
+    }
+    onDone () {
+        after(1000, () => {
+            this.seed.getOut();
+            this.soil.getOut();
+            this.paper.getOut();
+            this.glasses.getOut();
+            after(500, () => this.app.whenGameIsDone())
         });
     }
 }

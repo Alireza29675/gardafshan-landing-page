@@ -8,7 +8,7 @@ window.every = (time, doWhat) => setInterval(doWhat, time);
 
 class App {
     constructor () {
-        this.game = new Game();
+        this.game = new Game(this);
         this.enterButton = $('.intro button');
         this.init();
     }
@@ -17,6 +17,9 @@ class App {
         this.enterButton.addEventListener('click', () => this.game.unBox())
     }
     ready () {
+
+    }
+    whenGameIsDone () {
 
     }
 }

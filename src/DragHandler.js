@@ -67,6 +67,12 @@ class DragHandler {
     onEnd (cb) {
         this.onEndCb = cb
     }
+    destroy () {
+        this.container.style.transitionDuration = '1s';
+        this.container.style.right = '';
+        this.container.style.bottom = '';
+        this.draggable.destroy()
+    }
     onEnterDroppable () {
         window.app.game.vase.container.classList.add('draggable-over')
     }

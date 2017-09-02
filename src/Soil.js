@@ -8,6 +8,10 @@ class Soil {
             this.container.style.left = '';
         })
     }
+    getOut () {
+        this.draggable.destroy();
+        this.container.classList.add('out-page')
+    }
     makeDraggable () {
         this.container.style.transitionDuration = '0s';
         this.draggable = new DragHandler(this.container, {x: 100, y: 0});
