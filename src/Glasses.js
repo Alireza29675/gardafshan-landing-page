@@ -9,7 +9,7 @@ class Glasses {
         })
     }
     getOut () {
-        this.draggable.destroy()
+        this.draggable.destroy();
         this.container.classList.add('out-page')
     }
     makeDraggable () {

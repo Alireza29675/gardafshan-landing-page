@@ -20,7 +20,7 @@ class App {
 
     }
     whenGameIsDone () {
-
+        this.game.container.classList.add('done');
     }
 }
 

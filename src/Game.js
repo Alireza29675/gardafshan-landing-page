@@ -8,6 +8,7 @@ import Glasses from './Glasses'
 class Game {
     constructor (app) {
         this.app = app;
+        this.container = $('.game');
         this.box = new Box('.game .box');
         this.vase = new Vase('.game .vase', this);
         this.paper = new Paper('.game .paper', this);
@@ -29,12 +30,13 @@ class Game {
         });
     }
     onDone () {
-        after(1000, () => {
+        this.paper.bold();
+        after(2000, () => {
             this.seed.getOut();
             this.soil.getOut();
             this.paper.getOut();
             this.glasses.getOut();
-            after(500, () => this.app.whenGameIsDone())
+            after(1000, () => this.app.whenGameIsDone())
         });
     }
 }
