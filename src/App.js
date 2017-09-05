@@ -10,6 +10,7 @@ class App {
     constructor () {
         this.game = new Game(this);
         this.enterButton = $('.intro button');
+        this.outroBox = $('.outro');
         this.init();
     }
     init () {
@@ -21,6 +22,7 @@ class App {
     }
     whenGameIsDone () {
         this.game.container.classList.add('done');
+        after(1000, () => this.outroBox.classList.add('show'))
     }
 }
 
