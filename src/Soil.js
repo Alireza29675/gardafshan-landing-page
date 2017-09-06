@@ -14,7 +14,7 @@ class Soil {
     }
     makeDraggable () {
         this.container.style.transitionDuration = '0s';
-        this.draggable = new DragHandler(this.container, {x: 100, y: 0});
+        this.draggable = new DragHandler(this.container, {x: 100, y: 0}, 150);
     }
     comeOut () {
         this.container.classList.add('out');

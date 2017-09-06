@@ -13,14 +13,22 @@ class Paper {
     }
     bold () {
         this.container.classList.add('bold');
-        after(2000, ()=>{ this.container.classList.remove('bold') })
+        after(2000, () => this.container.classList.remove('bold'))
     }
     next () {
         const duration = this.itemIndex === 0 ? 0 : 1000;
-        if (this.itemIndex > 0) this.items[this.itemIndex-1].classList.add('tick');
+        let indexIterator = this.itemIndex;
+        if (this.itemIndex > 0) {
+            while (indexIterator > 0) {
+                indexIterator--;
+                this.items[indexIterator].classList.add('tick');
+            }
+        }
         if (this.itemIndex < this.items.length) after(duration, () => {
             this.bold();
-            this.items[this.itemIndex].classList.add('active');
+            if (!this.items[this.itemIndex].classList.contains('tick')) {
+                this.items[this.itemIndex].classList.add('active');
+            }
             this.itemIndex++
         });
         else {

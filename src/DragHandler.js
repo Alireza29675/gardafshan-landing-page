@@ -1,7 +1,8 @@
 import Draggable from 'draggable'
 
 class DragHandler {
-    constructor(element, origin) {
+    constructor(element, origin, maxDistance = 70) {
+        this.maxDistance = maxDistance
         this.inTarget = false;
         this.origin = origin || {x: 0, y: 0};
         this.targetRect = null;
@@ -90,7 +91,7 @@ class DragHandler {
             Math.pow((targetCenterX - position.left - this.origin.x), 2) +
             Math.pow((targetCenterY - position.top - this.origin.y), 2)
         );
-        const newInTargetCalculated = distance < 70;
+        const newInTargetCalculated = distance < this.maxDistance;
         if (this.inTarget && !newInTargetCalculated) this.onExitDroppable();
         else if (!this.inTarget && newInTargetCalculated) this.onEnterDroppable();
         this.inTarget = newInTargetCalculated;
