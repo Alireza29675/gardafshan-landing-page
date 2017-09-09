@@ -4,6 +4,7 @@ import Paper from './Paper'
 import Soil from './Soil'
 import Seed from './Seed'
 import Glasses from './Glasses'
+import iPhone from './iPhone'
 
 class Game {
     constructor (app) {
@@ -15,6 +16,7 @@ class Game {
         this.soil = new Soil('.game .soil');
         this.seed = new Seed('.game .seed');
         this.glasses = new Glasses('.game .glasses');
+        this.iphone = new iPhone('.game .iphone');
     }
     unBox () {
         $('.intro').classList.add('hide');
