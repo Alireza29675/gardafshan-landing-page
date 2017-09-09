@@ -22,7 +22,7 @@ class Vase {
         const nextIndex = vaseEvolutionQueue.indexOf(this.state) + 1;
         this.state = vaseEvolutionQueue[Math.min(nextIndex, vaseEvolutionQueue.length - 1)];
         if (this.state === 'wet') {
-            this.game.iphone.unlock(10000);
+            after(600, this.game.iphone.unlock(10000));
             after(300, this.next.bind(this));
         }
         if (!['wet', 'green-little', 'green-medium'].includes(this.state)) this.game.paper.next()
